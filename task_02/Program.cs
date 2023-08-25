@@ -37,6 +37,7 @@ void PrintArray(int[,] array){
         Console.WriteLine();
     }
 }
+
 void FindElement(int[,] array, int row, int column){
    if(row < 0 || row >= array.GetLength(0) || column < 0 || column >= array.GetLength(1)) {
     Console.WriteLine($"Ha позиции [{row},{column}] элемента нет. Выход за пределы массива! ");
