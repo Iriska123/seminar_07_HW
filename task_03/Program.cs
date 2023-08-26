@@ -14,11 +14,10 @@ int columns = int.Parse(Console.ReadLine()!);
 int[,] array = GetArray(rows, columns, 0, 10);
 PrintArray(array);
 
-Sum(array,rows);
+Sum(array);
 
 
-int[,] GetArray(int m, int n, int minValue, int maxValue)
-{
+int[,] GetArray(int m, int n, int minValue, int maxValue){
     int[,] res = new int[m,n];
     for(int i = 0; i < m; i++){
         for(int j = 0; j < n; j++){
@@ -32,19 +31,29 @@ void PrintArray(int[,] array){
     for(int i = 0; i < array.GetLength(0); i++){
         for(int j = 0; j < array.GetLength(1); j++){
             Console.Write($"{array[i,j]} ");
+            
         }
         Console.WriteLine();
     }
+    Console.WriteLine();
 }
 
-void Sum (int[,] array, int rows){
-    double d = 0;
-    for(int i = 0; i < array.GetLength(0); i++){
-        for(int j = 0; j < array.GetLength(1); j++){
-            d +=array[i,j]/rows; 
-            Console.Write(d);
+void Sum (int[,] array){
+    int sum = 0;
+    int j = 0;
+    double g = 0;
+    Console.Write($"Среднее арифметическое каждого столбца: "); 
+
+    while (j < array.GetLength(1)) {
+        for(int i = 0; i < array.GetLength(0); i++){
+            sum +=array[i,j]; 
+            g = (double)sum/array.GetLength(0);
         }
-        Console.WriteLine();
+            //Console.WriteLine($"Сумма столбца = {sum} ");
+        Console.Write("{0:f2}; ", g);
+        j++;
+        sum = 0;
     }
-
+Console.WriteLine();
 }
+
