@@ -15,6 +15,7 @@ int[,] array = GetArray(rows, columns, 0, 10);
 PrintArray(array);
 
 Sum(array);
+Sum2(array);
 
 
 int[,] GetArray(int m, int n, int minValue, int maxValue){
@@ -57,3 +58,18 @@ void Sum (int[,] array){
 Console.WriteLine();
 }
 
+void Sum2(int[,] array) {
+ int sum = 0;
+ double g = 0;
+ Console.Write($"Среднее арифметическое каждого столбца: "); 
+    for(int i = 0; i < array.GetLength(1); i++){
+        for(int j = 0; j < array.GetLength(0); j++){
+            sum += array[j,i];
+            g = (double)sum/array.GetLength(0);
+            //Console.WriteLine($"Сумма столбца in iter var2 = {sum} ");
+        }
+    //Console.WriteLine($"Сумма столбца var2 = {sum} ");
+    Console.Write("{0:f2}; ", g);
+    sum = 0;
+    }
+}
